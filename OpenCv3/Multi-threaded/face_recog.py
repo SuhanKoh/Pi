@@ -1,6 +1,5 @@
 from __future__ import print_function
 from pivideostream import PiVideoStream
-from imutils.video import FPS
 from picamera.array import PiRGBArray
 from picamera import PiCamera
 import imutils
