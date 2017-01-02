@@ -6,6 +6,7 @@ import Weathered.weathered
 import imutils
 import time
 import cv2
+import threading
 
 WEATHER_COOLDOWN = 60 # 60 sec
 piVidSteam = PiVideoStream()
@@ -28,7 +29,7 @@ while True:
         temp = time.time()
         if (temp - last_forecast_request_time >= WEATHER_COOLDOWN):
             last_forecast_request_time = temp
-            Weathered.weathered.get_weather()
+            threading.Thread(target=Weathered.weathered.get_weather).start()
             
     #Draw a rectangle around every found face
     for (x,y,w,h) in faces:
